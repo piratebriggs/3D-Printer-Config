@@ -15,9 +15,9 @@ delta_segments_per_second                    100              # For deltas only,
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 # See http://smoothieware.org/stepper-motors
-alpha_steps_per_mm                           160              # Steps per mm for alpha ( X ) stepper and tower
-beta_steps_per_mm                            160              # Steps per mm for beta ( Y ) stepper and tower
-gamma_steps_per_mm                           160              # Steps per mm for gamma ( Z ) stepper and tower
+alpha_steps_per_mm                           320              # Steps per mm for alpha ( X ) stepper and tower
+beta_steps_per_mm                            320              # Steps per mm for beta ( Y ) stepper and tower
+gamma_steps_per_mm                           320              # Steps per mm for gamma ( Z ) stepper and tower
 
 # Delta configuration
 # See http://smoothieware.org/delta
@@ -61,7 +61,7 @@ gamma_max_rate                               30000.0          # Maximum rate in 
 ## Extruder module configuration
 # See http://smoothieware.org/extruder
 extruder.hotend.enable                          true          # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.hotend.steps_per_mm                    155           # Steps per mm for extruder stepper
+extruder.hotend.steps_per_mm                    310           # Steps per mm for extruder stepper
 extruder.hotend.default_feed_rate               600           # Default rate ( mm/minute ) for moves where only the extruder moves
 extruder.hotend.acceleration                    500           # Acceleration for the stepper motor mm/sec²
 extruder.hotend.max_speed                       50            # Maximum speed in mm/s
@@ -83,7 +83,7 @@ extruder.hotend.en_pin                          0.21          # Pin for extruder
 #extruder.hotend.retract_zlift_length            0            # Z-lift on retract in mm, 0 disables
 #extruder.hotend.retract_zlift_feedrate          6000         # Z-lift feedrate in mm/min (Note mm/min NOT mm/sec)
 
-delta_current                                    1.0          # First extruder stepper motor current
+delta_current                                    1.2          # First extruder stepper motor current
 
 # Second extruder module configuration
 #extruder.hotend2.enable                         true         # Whether to activate the extruder module at all. All configuration is ignored if false
@@ -218,7 +218,7 @@ beta_max                                     0                # This gets loaded
 gamma_min_endstop                            nc               # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_max_endstop                            1.29^            # Pin to read max endstop, uncomment this and comment the above if using max endstops
 gamma_homing_direction                       home_to_max      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
-gamma_max                                    194.7415           # This gets loaded as the current position after homing when home_to_max is set
+gamma_max                                    171.0           # This gets loaded as the current position after homing when home_to_max is set
 
 alpha_max_travel                             1000             # Max travel in mm for alpha/X axis when homing
 beta_max_travel                              1000             # Max travel in mm for beta/Y axis when homing
@@ -252,9 +252,9 @@ gamma_trim                                    0                # Software trim f
 
 ## Z-probe
 # See http://smoothieware.org/zprobe
-zprobe.enable                                true           # Set to true to enable a zprobe
-zprobe.probe_pin                             1.28^          # Pin probe is attached to, if NC remove the !
-zprobe.slow_feedrate                         5               # Mm/sec probe feed rate
+zprobe.enable                                true            # Set to true to enable a zprobe
+zprobe.probe_pin                             1.23            # Pin probe is attached to, if NC remove the !
+zprobe.slow_feedrate                         5               # Mm/sec probe feed ra	te
 #zprobe.debounce_count                       100             # Set if noisy
 zprobe.fast_feedrate                         100             # Move feedrate mm/sec
 zprobe.probe_height                          5               # How much above bed to start probe
@@ -264,8 +264,8 @@ zprobe.probe_height                          5               # How much above be
 
 # associated with zprobe the leveling strategy to use
 leveling-strategy.lsq-delta-calibration.enable          true   # Least squares (David Crocker variant) delta calibration
-leveling-strategy.lsq-delta-calibration.radius          80.0   # the maximum probe radius
-leveling-strategy.lsq-delta-calibration.sample_count    7      # the number of sample points; should be 6xN+1 (i.e. 7, 13, 19)
+leveling-strategy.lsq-delta-calibration.radius          70.0   # the maximum probe radius
+leveling-strategy.lsq-delta-calibration.sample_count    13      # the number of sample points; should be 6xN+1 (i.e. 7, 13, 19)
 leveling-strategy.lsq-delta-calibration.factors         6      # the number factors to calibration: 
                                                                #    3=endstops
                                                                #    4=towers + delta radius
